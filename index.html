@@ -9,7 +9,12 @@
     <meta name="keywords" content="bimbingan tesis s2, konsultasi disertasi s3, olah data statistik, bantuan penyuntingan jurnal, pendampingan scopus, jurnal sinta, proofreading akademik">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Doktor & Magister Center">
-
+        <!-- Favicon / Ikon Website -->
+      <link rel="icon" type="image/x-icon" href="/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
     <!-- Open Graph / Facebook / WhatsApp Preview (Agar Bagus Saat Di-share) -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://website-anda.com/">
@@ -35,128 +40,122 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #0A192F;
-            --primary-light: #1E293B;
-            --accent-gold: #F59E0B;
-            --accent-gold-glow: rgba(245, 158, 11, 0.4);
-            --accent-blue: #2563EB;
-            --accent-purple: #7C3AED;
-            --success: #10B981;
-            --bg-light: #F8FAFC;
-            --text-dark: #0F172A;
-            --text-muted: #64748B;
-            --border-color: #E2E8F0;
-        }
+    :root {
+        --primary: #0A192F;
+        --primary-light: #1E293B;
+        --accent-gold: #F59E0B;
+        --accent-blue: #2563EB;
+        --success: #10B981;
+        --bg-light: #F8FAFC;
+        --text-dark: #0F172A;
+        --text-muted: #64748B;
+        --border-color: #E2E8F0;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+    /* KUNCI CEGAH KELUAR FRAME */
+    html, body {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        margin: 0;
+        padding: 0;
+    }
 
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-        }
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        scroll-behavior: smooth; 
+    }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
+    body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
 
-        .animated-float { animation: float 4s ease-in-out infinite; }
+    /* Top Banner */
+    .top-banner {
+        background: linear-gradient(90deg, #1E1B4B, #312E81, #4338CA);
+        color: #E0E7FF; text-align: center; padding: 10px 15px; font-size: 0.8rem; font-weight: 600;
+        word-break: break-word;
+    }
+    .top-banner a { color: #FDE047; text-decoration: underline; display: inline-block; margin-top: 4px; }
 
-        .top-banner {
-            background: linear-gradient(90deg, #1E1B4B, #312E81, #4338CA);
-            color: #E0E7FF; text-align: center; padding: 10px 20px; font-size: 0.88rem; font-weight: 600;
-        }
-        .top-banner a { color: #FDE047; text-decoration: underline; margin-left: 8px; }
+    /* Navbar Responsif */
+    .navbar {
+        background: rgba(255, 255, 255, 0.98); position: sticky; top: 0; z-index: 1000;
+        padding: 12px 5%; display: flex; justify-content: space-between; align-items: center; 
+        border-bottom: 1px solid var(--border-color); flex-wrap: wrap; gap: 10px;
+    }
+    .logo { font-size: 1.1rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-icon { background: linear-gradient(135deg, var(--accent-gold), #D97706); color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .nav-links { display: none; } /* Sembunyikan menu teks di HP agar tidak berantakan */
 
-        .navbar {
-            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 1000;
-            padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color);
-        }
-        .logo { font-size: 1.35rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .logo-icon { background: linear-gradient(135deg, var(--accent-gold), #D97706); color: white; width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .btn-wa-nav {
+        background: var(--success); color: white; padding: 8px 16px; border-radius: 50px; text-decoration: none;
+        font-weight: 700; font-size: 0.8rem; display: flex; align-items: center; gap: 6px; white-space: nowrap;
+    }
+
+    /* Hero Section untuk HP */
+    .hero {
+        background: radial-gradient(circle at top right, #1E293B, #0A192F); color: white; 
+        padding: 40px 5% 50px; display: flex; flex-direction: column; gap: 30px; text-align: center;
+    }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-gold); color: #FDE047; padding: 6px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-bottom: 15px; }
+    .hero h1 { font-size: 1.8rem; font-weight: 800; line-height: 1.3; margin-bottom: 15px; word-wrap: break-word; }
+    .hero h1 span { background: linear-gradient(135deg, #FDE047, #F59E0B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 0.9rem; color: #94A3B8; margin-bottom: 20px; }
+    .hero-image-container img { width: 100%; height: auto; border-radius: 16px; }
+
+    /* Section & Container */
+    .section-header { text-align: center; margin-bottom: 30px; padding: 0 5%; }
+    .section-header span { color: var(--accent-blue); font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.75rem; }
+    .section-header h2 { font-size: 1.5rem; color: var(--primary); font-weight: 800; margin-top: 4px; }
+
+    .benefits-section, .pricing-section, .gallery-section, .tips-section { padding: 50px 4%; }
+    
+    /* Layout Grid Pas di Layar HP */
+    .benefits-grid, .pricing-grid, .gallery-grid, .tips-grid { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 20px; 
+        width: 100%; 
+    }
+
+    .price-card, .benefit-card, .gallery-card, .tips-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .price-card { background: white; border-radius: 16px; padding: 20px 15px; border: 1px solid var(--border-color); }
+    .price-card.featured { border: 2px solid var(--accent-gold); }
+    .price-list li { font-size: 0.8rem; padding: 6px 0; }
+    .price-tag { font-size: 1.25rem; font-weight: 800; margin-bottom: 12px; }
+    .btn-card { display: block; text-align: center; background: var(--primary); color: white; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.85rem; }
+
+    /* Banner CTA */
+    .custom-cta-banner {
+        background: linear-gradient(135deg, var(--primary-light), var(--primary));
+        color: white; border-radius: 16px; padding: 25px 15px; text-align: center; margin: 30px 2%;
+        border: 1px solid var(--accent-gold);
+    }
+    .custom-cta-banner h3 { font-size: 1.3rem; margin-bottom: 8px; color: var(--accent-gold); }
+    .custom-cta-banner p { font-size: 0.85rem; color: #94A3B8; margin-bottom: 18px; }
+
+    /* Floating WhatsApp */
+    .floating-cta {
+        position: fixed; bottom: 15px; right: 15px; background: var(--success); color: white; padding: 10px 18px;
+        border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.8rem;
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4); display: flex; align-items: center; gap: 6px; z-index: 9999;
+    }
+
+    /* Penyesuaian untuk Layar Dekstop/Laptop */
+    @media (min-width: 768px) {
         .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent-blue); }
-
-        .btn-wa-nav {
-            background: var(--success); color: white; padding: 10px 22px; border-radius: 50px; text-decoration: none;
-            font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; animation: pulse-glow 2s infinite; transition: 0.3s;
-        }
-
-        .hero {
-            background: radial-gradient(circle at top right, #1E293B, #0A192F); color: white; padding: 80px 8% 100px;
-            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; position: relative;
-        }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-gold); color: #FDE047; padding: 6px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; }
-        .hero h1 { font-size: 2.7rem; font-weight: 800; line-height: 1.25; margin-bottom: 20px; }
-        .hero h1 span { background: linear-gradient(135deg, #FDE047, #F59E0B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { font-size: 1.05rem; color: #94A3B8; margin-bottom: 30px; }
-
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header span { color: var(--accent-blue); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; }
-        .section-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 800; margin-top: 6px; }
-
-        /* Benefits Grid */
-        .benefits-section { padding: 80px 8%; background: white; }
-        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
-        .benefit-card { background: var(--bg-light); padding: 25px; border-radius: 16px; border: 1px solid var(--border-color); text-align: left; }
-        .benefit-card i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 15px; }
-        .benefit-card h4 { font-size: 1.05rem; color: var(--primary); margin-bottom: 8px; }
-        .benefit-card p { font-size: 0.85rem; color: var(--text-muted); }
-
-        /* Pricing Section */
-        .pricing-section { padding: 80px 8%; max-width: 1400px; margin: 0 auto; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .price-card { background: white; border-radius: 20px; padding: 30px 20px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: 0.3s; }
-        .price-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .price-card.featured { border: 2px solid var(--accent-gold); background: linear-gradient(180deg, #FFFDF5 0%, #FFFFFF 100%); }
-        .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 4px 18px; border-radius: 50px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; }
-        .garansi-badge { display: inline-block; background: #EFF6FF; color: var(--accent-blue); font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 8px; margin: 12px 0 18px; }
-        .price-list { list-style: none; margin-bottom: 20px; }
-        .price-list li { font-size: 0.85rem; padding: 8px 0; border-bottom: 1px dashed var(--border-color); display: flex; justify-content: space-between; color: var(--text-muted); }
-        .price-list li strong { color: var(--primary); }
-        .price-tag { text-align: center; font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; }
-        .btn-card { display: block; text-align: center; background: var(--primary); color: white; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.88rem; transition: 0.3s; }
-        .price-card.featured .btn-card { background: linear-gradient(135deg, #F59E0B, #D97706); }
-
-        /* Gallery Section */
-        .gallery-section { padding: 80px 8%; background: white; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1300px; margin: 0 auto; }
-        .gallery-card { border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-        .gallery-card img { width: 100%; height: 240px; object-fit: cover; display: block; transition: 0.5s; }
-        .gallery-card:hover img { transform: scale(1.08); }
-        .gallery-caption { padding: 18px; background: white; }
-
-        /* Tips & Scopus Section */
-        .tips-section { padding: 80px 8%; background: var(--bg-light); }
-        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
-        .tips-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); }
-        .tips-card img { width: 100%; height: 200px; object-fit: cover; }
-        .tips-content { padding: 25px; }
-        .tips-content h4 { color: var(--primary); font-size: 1.15rem; margin-bottom: 10px; }
-        .tips-content ul { padding-left: 20px; font-size: 0.88rem; color: var(--text-muted); }
-
-        /* Banner Konsultasi WA */
-        .custom-cta-banner {
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            color: white; border-radius: 20px; padding: 40px; text-align: center; margin: 60px auto 0; max-width: 1000px;
-            border: 1px solid var(--accent-gold);
-        }
-        .custom-cta-banner h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--accent-gold); }
-        .custom-cta-banner p { color: #94A3B8; margin-bottom: 25px; }
-
-        .floating-cta {
-            position: fixed; bottom: 25px; right: 25px; background: var(--success); color: white; padding: 14px 24px;
-            border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.95rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
-            display: flex; align-items: center; gap: 10px; z-index: 999;
-        }
-
-        footer { background: var(--primary); color: white; padding: 50px 8% 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
-    </style>
+        .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; text-align: left; padding: 80px 8%; }
+        .hero h1 { font-size: 2.7rem; }
+        .benefits-grid, .gallery-grid, .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+        .benefits-section, .pricing-section, .gallery-section, .tips-section { padding: 80px 8%; }
+    }
+</style>
 </head>
 <body>
 
