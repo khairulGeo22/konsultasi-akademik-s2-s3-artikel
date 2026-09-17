@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pusat Pendampingan Tesis S2, Disertasi S3 & Jurnal Scopus / SINTA</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0A192F;
+            --primary-light: #1E293B;
+            --accent-gold: #F59E0B;
+            --accent-gold-glow: rgba(245, 158, 11, 0.4);
+            --accent-blue: #2563EB;
+            --accent-purple: #7C3AED;
+            --success: #10B981;
+            --bg-light: #F8FAFC;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animated-float { animation: float 4s ease-in-out infinite; }
+
+        .top-banner {
+            background: linear-gradient(90deg, #1E1B4B, #312E81, #4338CA);
+            color: #E0E7FF; text-align: center; padding: 10px 20px; font-size: 0.88rem; font-weight: 600;
+        }
+        .top-banner a { color: #FDE047; text-decoration: underline; margin-left: 8px; }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); position: sticky; top: 0; z-index: 1000;
+            padding: 16px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color);
+        }
+        .logo { font-size: 1.35rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { background: linear-gradient(135deg, var(--accent-gold), #D97706); color: white; width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.88rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        .btn-wa-nav {
+            background: var(--success); color: white; padding: 10px 22px; border-radius: 50px; text-decoration: none;
+            font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; animation: pulse-glow 2s infinite; transition: 0.3s;
+        }
+
+        .hero {
+            background: radial-gradient(circle at top right, #1E293B, #0A192F); color: white; padding: 80px 8% 100px;
+            display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; position: relative;
+        }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245, 158, 11, 0.15); border: 1px solid var(--accent-gold); color: #FDE047; padding: 6px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 700; margin-bottom: 20px; }
+        .hero h1 { font-size: 2.7rem; font-weight: 800; line-height: 1.25; margin-bottom: 20px; }
+        .hero h1 span { background: linear-gradient(135deg, #FDE047, #F59E0B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.05rem; color: #94A3B8; margin-bottom: 30px; }
+
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-header span { color: var(--accent-blue); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.85rem; }
+        .section-header h2 { font-size: 2.2rem; color: var(--primary); font-weight: 800; margin-top: 6px; }
+
+        /* Benefits Grid */
+        .benefits-section { padding: 80px 8%; background: white; }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; max-width: 1300px; margin: 0 auto; }
+        .benefit-card { background: var(--bg-light); padding: 25px; border-radius: 16px; border: 1px solid var(--border-color); text-align: left; }
+        .benefit-card i { font-size: 2rem; color: var(--accent-gold); margin-bottom: 15px; }
+        .benefit-card h4 { font-size: 1.05rem; color: var(--primary); margin-bottom: 8px; }
+        .benefit-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* Pricing Section */
+        .pricing-section { padding: 80px 8%; max-width: 1400px; margin: 0 auto; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .price-card { background: white; border-radius: 20px; padding: 30px 20px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.03); display: flex; flex-direction: column; justify-content: space-between; position: relative; transition: 0.3s; }
+        .price-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+        .price-card.featured { border: 2px solid var(--accent-gold); background: linear-gradient(180deg, #FFFDF5 0%, #FFFFFF 100%); }
+        .featured-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 4px 18px; border-radius: 50px; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; }
+        .garansi-badge { display: inline-block; background: #EFF6FF; color: var(--accent-blue); font-size: 0.78rem; font-weight: 700; padding: 6px 12px; border-radius: 8px; margin: 12px 0 18px; }
+        .price-list { list-style: none; margin-bottom: 20px; }
+        .price-list li { font-size: 0.85rem; padding: 8px 0; border-bottom: 1px dashed var(--border-color); display: flex; justify-content: space-between; color: var(--text-muted); }
+        .price-list li strong { color: var(--primary); }
+        .price-tag { text-align: center; font-size: 1.4rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; }
+        .btn-card { display: block; text-align: center; background: var(--primary); color: white; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.88rem; transition: 0.3s; }
+        .price-card.featured .btn-card { background: linear-gradient(135deg, #F59E0B, #D97706); }
+
+        /* Gallery Section */
+        .gallery-section { padding: 80px 8%; background: white; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1300px; margin: 0 auto; }
+        .gallery-card { border-radius: 16px; overflow: hidden; position: relative; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+        .gallery-card img { width: 100%; height: 240px; object-fit: cover; display: block; transition: 0.5s; }
+        .gallery-card:hover img { transform: scale(1.08); }
+        .gallery-caption { padding: 18px; background: white; }
+
+        /* Tips & Scopus Section */
+        .tips-section { padding: 80px 8%; background: var(--bg-light); }
+        .tips-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .tips-card { background: white; border-radius: 16px; overflow: hidden; border: 1px solid var(--border-color); }
+        .tips-card img { width: 100%; height: 200px; object-fit: cover; }
+        .tips-content { padding: 25px; }
+        .tips-content h4 { color: var(--primary); font-size: 1.15rem; margin-bottom: 10px; }
+        .tips-content ul { padding-left: 20px; font-size: 0.88rem; color: var(--text-muted); }
+
+        /* Banner Konsultasi WA */
+        .custom-cta-banner {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: white; border-radius: 20px; padding: 40px; text-align: center; margin: 60px auto 0; max-width: 1000px;
+            border: 1px solid var(--accent-gold);
+        }
+        .custom-cta-banner h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--accent-gold); }
+        .custom-cta-banner p { color: #94A3B8; margin-bottom: 25px; }
+
+        .floating-cta {
+            position: fixed; bottom: 25px; right: 25px; background: var(--success); color: white; padding: 14px 24px;
+            border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 0.95rem; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+            display: flex; align-items: center; gap: 10px; z-index: 999;
+        }
+
+        footer { background: var(--primary); color: white; padding: 50px 8% 30px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        🎓 Bebas Pusing Tesis S2, Disertasi S3 & Publikasi Scopus/SINTA Tuntas! 
+        <a href="https://wa.me/6285262608383?text=Halo,%20saya%20ingin%20tanya%20layanan%20akademik" target="_blank">Hubungi WA 085262608383 &rarr;</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+            <span>Doktor & Magister Center</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#manfaat">Manfaat</a></li>
+            <li><a href="#tesis">Paket Tesis (S2)</a></li>
+            <li><a href="#disertasi">Paket Disertasi (S3)</a></li>
+            <li><a href="#artikel">Publikasi Artikel</a></li>
+            <li><a href="#tips">Tips & Trik</a></li>
+        </ul>
+        <a href="https://wa.me/6285262608383?text=Halo,%20saya%20ingin%20konsultasi" class="btn-wa-nav" target="_blank">
+            <i class="fab fa-whatsapp"></i> Chat WhatsApp
+        </a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <div class="hero-badge"><i class="fas fa-check-circle"></i> Pendampingan Akademik Profesional 1-on-1</div>
+            <h1>Bimbingan Tesis S2 & Disertasi S3 <span>Bebas Pusing Sampai Lulus</span></h1>
+            <p>Pendampingan penyusunan proposal, olah data statistik rumit (SPSS/PLS/NVivo), hingga terbit Jurnal SINTA & Scopus Bereputasi.</p>
+            <a href="https://wa.me/6285262608383?text=Halo,%20saya%20ingin%20konsultasi%20paket%20penulisan" class="btn-wa-nav" style="display:inline-flex; padding: 16px 36px; font-size: 1rem; background: linear-gradient(135deg, #F59E0B, #D97706); color: var(--primary);" target="_blank">
+                <i class="fab fa-whatsapp"></i> Konsultasi Langsung via WA
+            </a>
+        </div>
+        <div class="hero-image-container animated-float">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" style="width:100%; border-radius:20px; border:3px solid rgba(255,255,255,0.1);" alt="Mahasiswa Wisuda">
+        </div>
+    </section>
+
+    <!-- Keuntungan Dipagari -->
+    <section class="benefits-section" id="manfaat">
+        <div class="section-header">
+            <span>Mengapa Memilih Kami?</span>
+            <h2>Deretan Manfaat & Keuntungan Luar Biasa</h2>
+        </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="fas fa-brain"></i>
+                <h4>Bebas Stress & Pusing</h4>
+                <p>Tidak perlu pusing memikirkan metode, kerangka berpikir, atau olah data rumit.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-user-tie"></i>
+                <h4>Tim Ahli Berpengalaman</h4>
+                <p>Ditangani langsung oleh Konsultan & Tim Riset Ahli bergelar Doktor & Magister.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-clock"></i>
+                <h4>Pengerjaan Tepat Waktu</h4>
+                <p>Proses kilat mulai dari 3 hari kerja untuk mengejar jadwal sidang Anda.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Garansi Bebas Revisi</h4>
+                <p>Naskah didampingi hingga benar-benar disetujui Dosen Pembimbing & Penguji.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Wisuda & Mahasiswa Santai) -->
+    <section class="gallery-section">
+        <div class="section-header">
+            <span>Transformasi Studi Anda</span>
+            <h2>Dari Pusing Menjadi Senyum Di Hari Wisuda</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Wisuda Doktor">
+                <div class="gallery-caption">
+                    <h4 style="color:var(--primary);">Momen Wisuda Impian</h4>
+                    <p style="color:var(--text-muted); font-size:0.85rem;">Fokus pada karier & keluarga, biarkan kami mendampingi teknis penulisan riset Anda.</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Diskusi Mahasiswa Santai">
+                <div class="gallery-caption">
+                    <h4 style="color:var(--primary);">Mentoring Santai</h4>
+                    <p style="color:var(--text-muted); font-size:0.85rem;">Bimbingan 1-on-1 interaktif sampai Anda benar-benar menguasai materi sidang.</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=600&q=80" alt="Penulisan Disertasi & Jurnal">
+                <div class="gallery-caption">
+                    <h4 style="color:var(--primary);">Analis Riset Terpercaya</h4>
+                    <p style="color:var(--text-muted); font-size:0.85rem;">Penyusunan naskah berkualitas tinggi sesuai standar jurnal Scopus & SINTA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKET HARGA TESIS S2 (4 TINGKATAN COMPLETE) -->
+    <section class="pricing-section" id="tesis">
+        <div class="section-header">
+            <span>Program Magister (S2)</span>
+            <h2>Daftar Paket Lengkap Tesis S2</h2>
+        </div>
+        <div class="pricing-grid">
+            
+            <!-- 1. Reguler -->
+            <div class="price-card">
+                <div>
+                    <h3>1. REGULER TESIS</h3>
+                    <div class="garansi-badge"><i class="fas fa-history"></i> Garansi 3x Revisi</div>
+                    <ul class="price-list">
+                        <li>Proposal Bab 1-3 <strong>Rp 2.500.000</strong></li>
+                        <li>Full Tesis Bab 1-5 <strong>Rp 6.000.000</strong></li>
+                        <li>Olah Data Saja <strong>Rp 2.000.000</strong></li>
+                        <li>Olah Data + Bab 4-5 <strong>Rp 3.500.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 6.000.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Paket%20Tesis%20Reguler" class="btn-card" target="_blank">Order Tesis Reguler</a>
+                </div>
+            </div>
+
+            <!-- 2. VIP -->
+            <div class="price-card">
+                <div>
+                    <h3>2. VIP TESIS</h3>
+                    <div class="garansi-badge"><i class="fas fa-history"></i> Garansi 6x Revisi</div>
+                    <ul class="price-list">
+                        <li>Proposal Bab 1-3 <strong>Rp 3.500.000</strong></li>
+                        <li>Full Tesis Bab 1-5 <strong>Rp 7.500.000</strong></li>
+                        <li>Tesis + Artikel SINTA <strong>Rp 9.000.000</strong></li>
+                        <li>Olah Data + Bab 4-5 <strong>Rp 4.500.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 7.500.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Paket%20Tesis%20VIP" class="btn-card" target="_blank">Order Tesis VIP</a>
+                </div>
+            </div>
+
+            <!-- 3. VVIP -->
+            <div class="price-card">
+                <div>
+                    <h3>3. VVIP TESIS</h3>
+                    <div class="garansi-badge" style="background:#FEF3C7; color:#D97706;"><i class="fas fa-bolt"></i> Bebas Revisi & Kilat 3 Hari</div>
+                    <ul class="price-list">
+                        <li>Proposal Bab 1-3 <strong>Rp 4.500.000</strong></li>
+                        <li>Full Tesis Bab 1-5 <strong>Rp 9.000.000</strong></li>
+                        <li>Tesis + 1 SINTA 2/3 <strong>Rp 11.000.000</strong></li>
+                        <li>Olah Data + Bab 4-5 <strong>Rp 5.500.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 9.000.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Paket%20Tesis%20VVIP" class="btn-card" target="_blank">Order Tesis VVIP</a>
+                </div>
+            </div>
+
+            <!-- 4. Super VVIP -->
+            <div class="price-card featured">
+                <div class="featured-tag"><i class="fas fa-crown"></i> Prioritas Utama</div>
+                <div>
+                    <h3>4. SUPER VVIP TESIS</h3>
+                    <div class="garansi-badge" style="background:#D1FAE5; color:#059669;"><i class="fas fa-user-shield"></i> Bebas Revisi + Full Pendampingan</div>
+                    <ul class="price-list">
+                        <li>Full Tesis Bab 1-5 <strong>Rp 11.000.000</strong></li>
+                        <li>Tesis + 1 Scopus <strong>Rp 15.000.000</strong></li>
+                        <li>Olah Data + Bab 4-5 <strong>Rp 6.500.000</strong></li>
+                        <li>PPT + Bimbingan Sidang <strong>FREE</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 11.000.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Paket%20Tesis%20Super%20VVIP" class="btn-card" target="_blank">Order Super VVIP Tesis</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PAKET HARGA DISERTASI S3 (4 TINGKATAN COMPLETE) -->
+    <section class="pricing-section" id="disertasi" style="background:#F1F5F9; border-radius:30px;">
+        <div class="section-header">
+            <span>Program Doktoral (S3)</span>
+            <h2>Daftar Paket Lengkap Disertasi S3</h2>
+        </div>
+        <div class="pricing-grid">
+            
+            <!-- 1. Reguler -->
+            <div class="price-card">
+                <div>
+                    <h3>1. REGULER DISERTASI</h3>
+                    <div class="garansi-badge"><i class="fas fa-history"></i> Garansi 3x Proposal & Pasca</div>
+                    <ul class="price-list">
+                        <li>Proposal Saja <strong>Rp 5.000.000</strong></li>
+                        <li>Full Disertasi <strong>Rp 13.000.000</strong></li>
+                        <li>Disertasi + Artikel <strong>Rp 15.000.000</strong></li>
+                        <li>Olah Data Saja <strong>Rp 4.000.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 13.000.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Disertasi%20Reguler" class="btn-card" target="_blank">Order Disertasi Reguler</a>
+                </div>
+            </div>
+
+            <!-- 2. VIP -->
+            <div class="price-card">
+                <div>
+                    <h3>2. VIP DISERTASI</h3>
+                    <div class="garansi-badge"><i class="fas fa-history"></i> Garansi 6x Proposal & Pasca</div>
+                    <ul class="price-list">
+                        <li>Proposal Saja <strong>Rp 7.000.000</strong></li>
+                        <li>Full Disertasi <strong>Rp 15.000.000</strong></li>
+                        <li>Disertasi + Artikel <strong>Rp 17.000.000</strong></li>
+                        <li>Olah Data + Bab 4-5 <strong>Rp 10.000.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 15.000.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Disertasi%20VIP" class="btn-card" target="_blank">Order Disertasi VIP</a>
+                </div>
+            </div>
+
+            <!-- 3. VVIP -->
+            <div class="price-card">
+                <div>
+                    <h3>3. VVIP DISERTASI</h3>
+                    <div class="garansi-badge" style="background:#FEF3C7; color:#D97706;"><i class="fas fa-bolt"></i> Bebas Revisi & Kilat (3 Hari)</div>
+                    <ul class="price-list">
+                        <li>Proposal Saja <strong>Rp 9.000.000</strong></li>
+                        <li>Full Disertasi <strong>Rp 17.000.000</strong></li>
+                        <li>Disertasi + 2 Artikel <strong>Rp 19.000.000</strong></li>
+                        <li>Olah Data + Bab 4-5 <strong>Rp 12.000.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 17.000.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Disertasi%20VVIP" class="btn-card" target="_blank">Order Disertasi VVIP</a>
+                </div>
+            </div>
+
+            <!-- 4. Super VVIP -->
+            <div class="price-card featured">
+                <div class="featured-tag"><i class="fas fa-crown"></i> Top Recommendation</div>
+                <div>
+                    <h3>4. SUPER VVIP DISERTASI</h3>
+                    <div class="garansi-badge" style="background:#D1FAE5; color:#059669;"><i class="fas fa-user-shield"></i> Pendampingan 1-on-1 Full</div>
+                    <ul class="price-list">
+                        <li>Full Disertasi <strong>Rp 20.000.000</strong></li>
+                        <li>Disertasi + 3 Scopus <strong>Rp 22.000.000</strong></li>
+                        <li>Olah Data Saja <strong>Rp 10.000.000</strong></li>
+                        <li>Olah Data + Bab 4-5 <strong>Rp 14.000.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rp 20.000.000</div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20pilih%20Disertasi%20Super%20VVIP" class="btn-card" target="_blank">Order Super VVIP Disertasi</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PUBLIKASI ARTIKEL JURNAL (SINTA 5, 4, 3, 2, 1 & SCOPUS) -->
+    <section class="pricing-section" id="artikel">
+        <div class="section-header">
+            <span>Terbit Terjamin & LOA Cepat</span>
+            <h2>Daftar Harga Publikasi Artikel SINTA & Scopus</h2>
+        </div>
+        <div class="pricing-grid">
+            
+            <div class="price-card">
+                <div>
+                    <h3>SINTA 4 & 5</h3>
+                    <div class="garansi-badge">Fast Track LOA</div>
+                    <ul class="price-list">
+                        <li>Pembuatan Artikel <strong>Rp 1.500.000</strong></li>
+                        <li>Publikasi SINTA 5 <strong>Rp 2.000.000</strong></li>
+                        <li>Publikasi SINTA 4 <strong>Rp 3.000.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20tanya%20SINTA%204/5" class="btn-card" target="_blank">Order SINTA 4 & 5</a>
+                </div>
+            </div>
+
+            <div class="price-card">
+                <div>
+                    <h3>SINTA 2 & 3</h3>
+                    <div class="garansi-badge">Akreditasi Nasional Tinggi</div>
+                    <ul class="price-list">
+                        <li>Pembuatan Artikel <strong>Rp 2.500.000</strong></li>
+                        <li>Publikasi SINTA 3 <strong>Rp 5.500.000</strong></li>
+                        <li>Publikasi SINTA 2 <strong>Rp 7.500.000</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20tanya%20SINTA%202/3" class="btn-card" target="_blank">Order SINTA 2 & 3</a>
+                </div>
+            </div>
+
+            <div class="price-card featured">
+                <div class="featured-tag">International Journal</div>
+                <div>
+                    <h3>SCOPUS (Q1 - Q4)</h3>
+                    <div class="garansi-badge" style="background:#FEF3C7; color:#D97706;">Garansi LOA & Indexing</div>
+                    <ul class="price-list">
+                        <li>Scopus Q4 / Non-Q <strong>Rp 8.000.000</strong></li>
+                        <li>Scopus Q3 <strong>Rp 12.000.000</strong></li>
+                        <li>Scopus Q2 / Q1 <strong>Rp 18.000.000+</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20tanya%20Paket%20Scopus" class="btn-card" target="_blank">Order Jurnal Scopus</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Tips n Trik Penulisan & Lolos Scopus -->
+    <section class="tips-section" id="tips">
+        <div class="section-header">
+            <span>Panduan Sukses Akademik</span>
+            <h2>Tips & Trik Disertasi/Tesis & Lolos Scopus</h2>
+        </div>
+
+        <div class="tips-grid">
+            <div class="tips-card">
+                <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Tips Disertasi">
+                <div class="tips-content">
+                    <h4>💡 Tips Menulis Disertasi & Tesis</h4>
+                    <ul>
+                        <li>Gunakan Reference Manager (Mendeley/Zotero) sejak Bab 1.</li>
+                        <li>Gunakan Novelty (Kebaruan Riset) yang jelas melalui analisis Bibliometrik (VOSviewer).</li>
+                        <li>Pastikan perumusan hipotesis selaras dengan olah data (SEM-PLS/SPSS).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tips-card">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Tips Scopus">
+                <div class="tips-content">
+                    <h4>🚀 Tips Tembus Jurnal Scopus</h4>
+                    <ul>
+                        <li>Pilih jurnal yang relevan dengan Aims & Scope naskah Anda.</li>
+                        <li>Gunakan penerjemah/proofreading profesional berstandar Native Speaker.</li>
+                        <li>Pastikan tingkat kemiripan Plagiarisme (Turnitin) di bawah 15%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner WA Call To Action -->
+        <div class="custom-cta-banner">
+            <h3>Mau Tahu Harga Menarik & Promo Paket Lainnya?</h3>
+            <p>Dapatkan promo diskon bundling Tesis/Disertasi + Publikasi Jurnal Hari Ini!</p>
+            <a href="https://wa.me/6285262608383?text=Halo,%20saya%20mau%20tahu%20harga%20menarik%20dan%20promo%20lainnya" class="btn-wa-nav" style="display:inline-flex; padding:16px 36px; font-size:1.05rem;" target="_blank">
+                <i class="fab fa-whatsapp"></i> Hubungi Kami Sekarang (085262608383)
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating WA CTA -->
+    <a href="https://wa.me/6285262608383?text=Halo,%20saya%20ingin%20tanya%20layanan%20akademik" class="floating-cta" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size:1.4rem;"></i> Chat Order (085262608383)
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Pusat Pendampingan Tesis, Disertasi & Publikasi Scopus. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
